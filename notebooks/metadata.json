@@ -1,0 +1,169 @@
+{
+    "experiment": {
+        "angular_range": "180.09 degree",
+        "current_name": "HS_702_z_00",
+        "exposure_time": "0.005855287734694571 second",
+        "flat_position": "-100.0 millimeter",
+        "frame_rate": "170.7858 hertz",
+        "iteration": "118",
+        "log_devices_at_finish": "True",
+        "log_devices_at_start": "True",
+        "log_level": "info",
+        "min_frame_rate": "40 hertz",
+        "name_fmt": "scan_{:>04}",
+        "num_darks": "200",
+        "num_flats": "200",
+        "num_projections": "2001",
+        "num_projections_total": "2001",
+        "radio_position": "-124.531 millimeter",
+        "scaled_exposure_time": "0.5 milliampere * second",
+        "separate_scans": "False",
+        "start_angle": "0 degree",
+        "state": "running",
+        "velocity": "15.377040000000001 degree / second"
+    },
+    "kara": {
+        "current": "85.3929 milliampere",
+        "energy": "2499.02 megaelectron_volt",
+        "lifetime": "50.8472 hour",
+        "state": "UserOperation"
+    },
+    "camera": {
+        "acquire_mode": "<enum UCA_PCO_CAMERA_ACQUIRE_MODE_AUTO of type uca.acquire-mode>",
+        "buffered": "False",
+        "concert_cached_recording_state": "True",
+        "cooling_point": "4128",
+        "cooling_point_default": "0",
+        "cooling_point_max": "0",
+        "cooling_point_min": "0",
+        "double_image_mode": "False",
+        "exposure_time": "0.005784 second",
+        "fast_scan": "False",
+        "frame_grabber_timeout": "5",
+        "frame_rate": "170.856 / second",
+        "global_shutter": "False",
+        "has_camram_recording": "True",
+        "has_double_image_mode": "True",
+        "has_streaming": "True",
+        "host": "192.168.62.135:8989",
+        "is_readout": "False",
+        "is_recording": "False",
+        "mirror": "True",
+        "name": "pco",
+        "noise_filter": "False",
+        "num_buffers": "2001",
+        "offset_mode": "False",
+        "port": "8989",
+        "record_mode": "<enum UCA_PCO_CAMERA_RECORD_MODE_RING_BUFFER of type uca.record-mode>",
+        "recorded_frames": "6313 dimensionless",
+        "roi_height": "2016 pixel",
+        "roi_height_multiplier": "2 pixel",
+        "roi_width": "2016 pixel",
+        "roi_width_multiplier": "24 pixel",
+        "roi_x0": "0 pixel",
+        "roi_y0": "0 pixel",
+        "rotate": "2",
+        "sensor_adcs": "4128",
+        "sensor_bitdepth": "12 dimensionless",
+        "sensor_extended": "False",
+        "sensor_height": "2016 pixel",
+        "sensor_height_extended": "2040",
+        "sensor_horizontal_binning": "1 pixel",
+        "sensor_max_adcs": "1",
+        "sensor_pixel_height": "1.1e-05 meter",
+        "sensor_pixel_width": "1.1e-05 meter",
+        "sensor_pixelrate": "62500000",
+        "sensor_temperature": "50.5",
+        "sensor_vertical_binning": "1 pixel",
+        "sensor_width": "2016 pixel",
+        "sensor_width_extended": "2016",
+        "state": "standby",
+        "storage_mode": "<enum UCA_PCO_CAMERA_STORAGE_MODE_RECORDER of type uca.storage-mode>",
+        "timestamp_mode": "<enum UCA_PCO_CAMERA_TIMESTAMP_NONE of type uca.timestamp-mode>",
+        "transfer_asynchronously": "False",
+        "trigger_source": "AUTO",
+        "version": "247, 0.0, 0.0"
+    },
+    "tomo": {
+        "acceleration": "3000.000004965572 degree / second ** 2",
+        "compare": "False",
+        "compare_num_pulses_generated": "0",
+        "compare_pulse_duration": "4.0 microsecond",
+        "compare_start": "0.0 degree",
+        "compare_step": "0.014896716101694914 degree",
+        "continuous_softlimit_check": "False",
+        "deceleration": "3000.000004965572 degree / second ** 2",
+        "fault": "None",
+        "motion_velocity": "19.999988413665253 degree / second",
+        "position": "1.4896716101694914e-05 degree",
+        "state": "standby",
+        "temperature": "31.0 degree_Celsius",
+        "velocity": "0 degree / second"
+    },
+    "tilt": {
+        "acceleration": "4.99993055652005 degree / second ** 2",
+        "compare": "False",
+        "compare_num_pulses_generated": "0",
+        "compare_pulse_duration": "4.0 microsecond",
+        "compare_start": "0.0 degree",
+        "compare_step": "0.4999930556520049 degree",
+        "continuous_softlimit_check": "False",
+        "deceleration": "4.99993055652005 degree / second ** 2",
+        "fault": "None",
+        "motion_velocity": "0.9999861113040098 degree / second",
+        "position": "0.09399869446257693 degree",
+        "state": "disabled",
+        "temperature": "47.0 degree_Celsius",
+        "velocity": "0 degree / second"
+    },
+    "align_x": {
+        "motion_velocity": "0.09999813139438629 millimeter / second",
+        "position": "0.00055 millimeter",
+        "state": "standby"
+    },
+    "align_y": {
+        "motion_velocity": "0.09999813139438629 millimeter / second",
+        "position": "-0.0001 millimeter",
+        "state": "standby"
+    },
+    "sample_z": {
+        "motion_velocity": "2.0 millimeter / second",
+        "position": "98.79934 millimeter",
+        "state": "standby"
+    },
+    "ccd_x": {
+        "motion_velocity": "1.0 millimeter / second",
+        "position": "-0.37 millimeter",
+        "state": "standby"
+    },
+    "ccd_y": {
+        "motion_velocity": "12.820512771606445 millimeter / second",
+        "position": "-0.005 millimeter",
+        "state": "standby"
+    },
+    "ccd_z": {
+        "motion_velocity": "1.0 millimeter / second",
+        "position": "0.0 millimeter",
+        "state": "standby"
+    },
+    "sample_changer": {
+        "sample": "(3, 3)",
+        "state": "standby"
+    },
+    "attenuator_1a": {
+        "attenuator": "PG_3000um",
+        "state": "standby"
+    },
+    "attenuator_1b": {
+        "attenuator": "PG_3000um",
+        "state": "standby"
+    },
+    "attenuator_2a": {
+        "attenuator": "None",
+        "state": "standby"
+    },
+    "attenuator_2b": {
+        "attenuator": "None",
+        "state": "standby"
+    }
+}

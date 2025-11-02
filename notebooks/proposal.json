@@ -1,0 +1,30 @@
+{
+    "ownerGroup": "IPS",
+    "accessGroups": [
+        "IPS", "LAS"
+    ],
+    "proposalId": "smart_morph_proposal1",
+    "type": "Default Proposal",
+    "pi_email": "tomas.farago@kit.edu",
+    "pi_firstname": "Tomas",
+    "pi_lastname": "Farago",
+    "email": "chandan.sarkar@kit.edu",
+    "firstname": "Chandan",
+    "lastname": "Sarkar",
+    "title": "SMART-Morph",
+    "abstract": "Serial Micro-Tomography",
+    "startTime": "2025-11-03T15:08:50.030Z",
+    "endTime": "2025-11-03T15:08:50.030Z",
+    "metadata": {
+        "samples": [
+            {
+                "Specimen_Name": "Hymenoptera Hamburg",
+                "Specimen_Code": "QR_CODE_HH"
+            },
+            {
+                "Specimen_Name": "Lepidoptera Leipzig",
+                "Specimen_Code": "QR_CODE_LL"
+            }
+        ]
+    }
+}

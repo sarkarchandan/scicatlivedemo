@@ -3,8 +3,10 @@ services:
     image: mongo:8.0
     volumes:
       - backend${BE_VERSION:-v4}_mongodb_data:/data/db
-      - ./config/init.sh:/docker-entrypoint-initdb.d/init.sh
-      - ./config/seed:/seed
+      # Init and seed files are loading the example dataset into the database, which are
+      # then available in the frontend.
+      # - ./config/init.sh:/docker-entrypoint-initdb.d/init.sh
+      # - ./config/seed:/seed
     labels:
       # Adding a label to keep this service out of traefik
       - traefik.enable=false
