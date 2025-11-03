@@ -2,18 +2,43 @@
 
 ## High-level Requirement
 
-#### Register a proposal before beam time along with details of the samples.
+- Register a proposal before beam time along with details of the samples and trays for QR Code
+  Management.
+- During beamtime dataset is acquired for samples and associated with the proposal.
 
-| ProposalId (PK)| Field 1 | Field 2 | ... |
-| -------------- | ------- | ------- |------- |
-| ... | ... | ...  | ...     |
+```mermaid
+erDiagram
+  Proposal {
+      string proposal_id PK
+      string description
+      string additional_metadata
+  }
 
-#### During beam time acquisitions (along with metadata) would be associated with the proposal.
+  Sample {
+    string specimen_id PK
+    string proposal_id FK
+    string tray_id FK
+    string specimen_name
+    string qr_code_label
+  }
 
-| AcquisitionId (PK)| ProposalId (FK) | Field 1 | Field 2 |
-| -------------- | ------- | ------- |------- |
-| ... | ... | ...  | ...   |
-| ... | ... | ...  | ...   |
+  Tray {
+    string tray_id PK
+    string proposal_id FK
+    string additional_metadata
+  }
+
+  AcquiredDataset {
+      string acq_id PK
+      string proposal_id FK
+      string specimen_id FK
+      string additional_metadata
+  }
+
+  Proposal one to many Sample : has
+  Proposal one to many Tray: has
+  Proposal one to many AcquiredDataset: has
+```
 
 ## MongoDB Data Model
 
@@ -22,11 +47,14 @@
   <img src="./object.png">
 </div>
 
-## [SciCat](https://www.scicatproject.org/#) - **Sci**entific Metadata **Cat**alog
+## [SciCat](https://www.scicatproject.org/#) - Scientific Metadata Catalog
+
+DESY SciCat: https://public-data.desy.de/
 
 ### Some Predefined SciCat Models
 
 #### Proposal
+
 ```
 {
   "ownerGroup": "string",
@@ -64,6 +92,7 @@
 ```
 
 #### Dataset
+
 ```
 {
   "ownerGroup": "string",
@@ -81,7 +110,7 @@
   "packedSize": 0,
   "numberOfFiles": 0,
   "numberOfFilesArchived": 0,
-  "creationTime": "2025-11-02T20:21:29.048Z",
+  "creationTime": "2025-11-03T15:25:22.632Z",
   "validationStatus": "string",
   "keywords": [
     "string"
@@ -96,25 +125,21 @@
   "relationships": [],
   "datasetlifecycle": {},
   "scientificMetadata": {},
-  "scientificMetadataSchema": "string",
   "comment": "string",
   "dataQualityMetrics": 0,
-  "principalInvestigators": [
-    "string"
-  ],
-  "startTime": "2025-11-02T20:21:29.048Z",
-  "endTime": "2025-11-02T20:21:29.048Z",
+  "proposalId": "string",
+  "runNumber": "string",
+  "principalInvestigator": "string",
+  "startTime": "2025-11-03T15:25:22.632Z",
+  "endTime": "2025-11-03T15:25:22.632Z",
   "creationLocation": "string",
   "dataFormat": "string",
-  "proposalIds": [
-    "string"
-  ],
-  "sampleIds": [
-    "string"
-  ],
-  "instrumentIds": [
-    "string"
-  ],
+  "sampleId": "string",
+  "instrumentId": "string",
+  "pid": "string",
+  "version": "string",
+  "type": "raw",
+  "investigator": "string",
   "inputDatasets": [
     "string"
   ],
@@ -122,14 +147,12 @@
     "string"
   ],
   "jobParameters": {},
-  "jobLogData": "string",
-  "runNumber": "string",
-  "pid": "string",
-  "type": "string"
+  "jobLogData": "string"
 }
 ```
 
 #### Instrument
+
 ```
 {
   "pid": "string",
@@ -142,12 +165,13 @@
 ## Concert Integration
 
 From
+
 ```python
 class Experiment:
 
     async def __ainit__(self, walker, ...) -> None:
         ...
-    
+
     async def _run(self) -> None:
         ...
         handler: RemoteLoggingHandler = await self.walker.register_logger(...)
@@ -158,10 +182,13 @@ class Experiment:
         await handler.close()
         self.log.removeHandler(handler)
 ```
+
 To
+
 ```
 Develop an interface to register approved beam time proposal to a database.
 ```
+
 ```python
 class MetadataHandler(...):
     """
@@ -177,7 +204,7 @@ class Experiment:
 
     async def __ainit__(self, walker, handler: MetadataHandler, ...) -> None:
         ...
-    
+
     async def _run(self) -> None:
         ...
         self.handler.handle(...)
@@ -192,13 +219,13 @@ class Experiment:
 ## Deployment
 
 - Deployment
-    - Native
-    - Container Orchestration
-      - Compose
-      - K8s
+  - Native
+  - Container Orchestration
+    - Compose
+    - K8s
 - Authentication & Security
-    - **OIDC**: https://www.scc.kit.edu/en/services/openid-connect.php
-    - **LDAP**: https://www.scc.kit.edu/en/services/faq-kit-ad.php
+  - **OIDC**: https://www.scc.kit.edu/en/services/openid-connect.php
+  - **LDAP**: https://www.scc.kit.edu/en/services/faq-kit-ad.php
 - Storage / Database Management (Can be in **LSDF**)
-    - Raw File System
-    - K8s StorageClass (NFS, Managed Raw File System)
+  - Raw File System
+  - K8s StorageClass (NFS, Managed Raw File System)

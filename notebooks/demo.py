@@ -91,8 +91,8 @@ class AcquisitionHandler(SciCatHandler):
         with open(file="metadata.json", mode="r") as fp:
             metadata = json.load(fp=fp)
         for acq in self._proposal["metadata"]["samples"]:
-            sample_name = acq["Specimen_Name"]
-            sample_code = acq["Specimen_Code"]
+            sample_name = acq["specimen_name"]
+            sample_code = acq["qr_code_label"]
             payload = {
                 "pid": f"{self._proposal['proposalId']}_{sample_code}",
                 "type": self._dataset_type,
@@ -113,7 +113,7 @@ class AcquisitionHandler(SciCatHandler):
                 "dataQualityMetrics": 0,
                 "startTime": datetime.today().isoformat(),
                 "endTime": datetime.today().isoformat(),
-                "creationLocation": "P23, PETRA III DESY Hamburg",
+                "creationLocation": "Deutsches Elektronen-Synchrotron DESY / PETRA III / P23 / HIKA",
                 "proposalId": self._proposal["proposalId"],
                 "usedSoftware": ["Concert", "Ufo-Tofu"]
             }
