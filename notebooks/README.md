@@ -2,9 +2,9 @@
 
 ## High-level Requirement
 
-- Register a proposal before beam time along with details of the samples and trays for QR Code
+- Register metadata for proposal before beam time along with details of the samples and trays for QR Code
   Management.
-- During beamtime dataset is acquired for samples and associated with the proposal.
+- During beam time dataset would be acquired for each sample, listed with the proposal.
 
 ```mermaid
 erDiagram
@@ -186,7 +186,7 @@ class Experiment:
 To
 
 ```
-Develop an interface to register approved beam time proposal to a database.
+Develop an interface to register metadata and samples / tray information for an approved proposal.
 ```
 
 ```python
@@ -211,21 +211,37 @@ class Experiment:
         ...
 ```
 
-- Direct - Remote Backend REST Endpoint
+- Direct HTTP Requests to Backend REST Endpoints.
 - Python Clients
   - [scitacean](https://www.scicatproject.org/scitacean/index.html)
   - [pyscicat](https://www.scicatproject.org/pyscicat/)
 
-## Deployment
+## Local Deployment
 
 - Deployment
-  - Native
-  - Container Orchestration
-    - Compose
-    - K8s
+  - Native vs Container Orchestration
 - Authentication & Security
   - **OIDC**: https://www.scc.kit.edu/en/services/openid-connect.php
   - **LDAP**: https://www.scc.kit.edu/en/services/faq-kit-ad.php
 - Storage / Database Management (Can be in **LSDF**)
   - Raw File System
   - K8s StorageClass (NFS, Managed Raw File System)
+
+## ROCK-IT BlueSky Workshop
+
+(Linus Pithan - Experiment Control Group)
+
+### Intended UseCase of SciCat at DESY
+
+- Not a experiment metadata dump.
+- Publishable data repository. Data should be published from SciCat, generated DOI will point back to SciCat
+  which should be able to point to the published data through DESY infrastructure.
+
+### Data Ingestion to SciCat
+
+- DESY IT will provide credentials.
+- DEV environment to tryout SciCat data ingestion is available upon request.
+
+### MongoDB
+
+- Write vs Read => PostgreSQL as alternative when fast read is required.
